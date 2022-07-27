@@ -1,0 +1,28 @@
+6. Alternate sorting: Given an array of integers, rearrange the array in such a way that
+the first element is first maximum and second element is first minimum.
+
+Eg.) Input : {1, 2, 3, 4, 5, 6, 7}
+Output : {7, 1, 6, 2, 5, 3, 4}
+
+
+
+
+public class Main {
+    public static void main(String[] args) {
+        int[] ar={1,2,3,4,5,6,7};
+        int len=ar.length;
+        int c=len/2;
+        int cnt=0;
+        while(c>0){
+            int max=ar[len-1];
+            ar[len-1]=0;
+            for(int i=len-1;i>cnt;i--){
+                ar[i]=ar[i-1];
+            }
+            ar[cnt]=max;
+            cnt+=2;
+            c--;
+        }
+       System.out.println(Arrays.toString(ar));
+    }
+}
