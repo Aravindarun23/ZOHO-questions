@@ -1,0 +1,29 @@
+Eg 1: Input: a1b10
+Output: abbbbbbbbbb
+Eg: 2: Input: b3c6d15
+Output: bbbccccccddddddddddddddd
+The number varies from 1 to 99.  
+    
+    
+public class Main {
+    public static void main(String[] args) {
+        String s="a10b6";
+        s+=" ";
+        String cnt="";
+        char c=s.charAt(0);
+        for(int i=1;i<s.length();i++){
+            if((s.charAt(i)>='a' && s.charAt(i)<='z')||s.charAt(i)==' '){
+                int cn=Integer.parseInt(cnt);
+                while(cn>0){
+                    System.out.print(c);
+                    cn--;
+                }
+                c=s.charAt(i);
+                cnt="";
+            }
+            else{
+                cnt+=s.charAt(i);    
+            }
+        }
+    }
+}
