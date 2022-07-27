@@ -1,0 +1,48 @@
+7. Remove unbalanced parentheses in a given expression.
+Eg.) Input : ((abc)((de))
+Output : ((abc)(de))
+Input : (((ab)
+Output : (ab)
+          
+          
+          
+          
+public class Main {
+    public static void main(String[] args) {
+        String s="((abc)((de))";
+        char[] c=s.toCharArray();
+        int i=0;
+        int j=s.length()-1; 
+        int open=0;
+        int close=0;
+        while(i<s.length()){
+            if(c[i]=='('){
+                open++;  
+            }
+            else if(c[i]==')'){
+               open--;
+            }
+            if(c[j]==')'){
+                close++;
+            }
+            else if(c[j]=='('){
+                close--;
+            }
+            if(open<0){
+                c[i]='@';
+                open=0;
+            }
+             if(close<0){
+                c[j]='@';
+                close=0;
+            }
+            i++;
+            j--;
+        }
+        for(int k=0;k<s.length();k++){
+
+                System.out.print(c[k]);
+            
+        }
+    }
+}
